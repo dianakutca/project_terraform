@@ -12,6 +12,13 @@ resource "aws_instance" "web" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.terraform-ec2.id]
   user_data              = file("install_apache.sh")
+
+  subnet_id                   = aws_subnet.public1.id
+  associate_public_ip_address = true
+
+  tags = {
+    "Name" : "wordpress"
+  }
 }
 
 # 3. Create sec group

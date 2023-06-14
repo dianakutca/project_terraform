@@ -1,4 +1,14 @@
-# target group
+# Application Load Balancer
+resource "aws_alb" "application-lb" {
+  name               = "project-alb"
+  internal           = false
+  ip_address_type    = "ipv4"
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.my_sg.id]
+  subnets            = [aws_subnet.public1.id, aws_subnet.public2.id, aws_subnet.public3.id]
+}
+
+# Target group
 resource "aws_alb_target_group" "project-tg" {
 
   name        = "project-tg"
@@ -18,16 +28,6 @@ resource "aws_alb_target_group" "project-tg" {
     matcher             = 302
 
   }
-}
-
-# Application Load Balancer
-resource "aws_alb" "application-lb" {
-  name               = "project-alb"
-  internal           = false
-  ip_address_type    = "ipv4"
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.my_sg.id]
-  subnets            = [aws_subnet.public1.id, aws_subnet.public2.id, aws_subnet.public3.id]
 }
 
 # Creating Listener

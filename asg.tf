@@ -1,3 +1,5 @@
+# Launch template
+
 resource "aws_launch_template" "my_launch_template" {
 
   name = "my_launch_template"
@@ -12,6 +14,8 @@ resource "aws_launch_template" "my_launch_template" {
     security_groups             = [aws_security_group.my_sg.id]
   }
 }
+
+# Create ASG
 
 resource "aws_autoscaling_group" "my_asg" {
   name              = "my_asg"
