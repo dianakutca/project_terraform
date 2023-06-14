@@ -3,10 +3,6 @@ variable "cidr_block" {
   type        = string
   default     = "10.0.0.0/16"
 }
-variable "region" {
-  description = "us-east-1"
-  type        = string
-}
 variable "public_subnet1" {
   description = "10.0.1.0/24"
   type        = string
