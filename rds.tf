@@ -4,13 +4,13 @@ resource "aws_db_subnet_group" "project_db_subnet_group" {
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
-  count              = 1
-  cluster_identifier = aws_rds_cluster.diana.id
-  instance_class     = "db.r4.large"
-  engine             = "aurora-mysql"
+  count                = 3
+  cluster_identifier   = aws_rds_cluster.diana.id
+  instance_class       = "db.r4.large"
+  engine               = "aurora-mysql"
   db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
-}
 
+}
 resource "aws_rds_cluster" "diana" {
   cluster_identifier     = "database-1"
   engine                 = "aurora-mysql"
@@ -20,21 +20,20 @@ resource "aws_rds_cluster" "diana" {
   master_password        = "barbut8chars"
   vpc_security_group_ids = [aws_security_group.db_sg.id]
   skip_final_snapshot    = true
-    db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
-  #   writer                 = true
-
+  db_subnet_group_name   = aws_db_subnet_group.project_db_subnet_group.id
 }
+
 
 resource "aws_security_group" "db_sg" {
   name        = "db-sg"
   description = "Allow MySQL access from EC2 instance"
-      vpc_id      = aws_vpc.Project.id
+  vpc_id      = aws_vpc.Project.id
 
   ingress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
 
   }
 }

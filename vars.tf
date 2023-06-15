@@ -34,3 +34,17 @@ variable "private_subnet3" {
   type        = string
   default     = "10.0.103.0/24"
 }
+
+variable "path_to_public_key" {
+  default = "/home/ec2-user/.ssh/id_rsa.pub"
+
+}
+
+variable "path_to_private_key" {
+  default = "/home/ec2-user/.ssh/id_rsa"
+
+}
+
+variable "instance_username" {
+  default = "ec2-user"
+}
