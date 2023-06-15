@@ -4,7 +4,7 @@ resource "aws_db_subnet_group" "project_db_subnet_group" {
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
-  count                = 3
+  count                = 1
   cluster_identifier   = aws_rds_cluster.diana.id
   instance_class       = "db.r4.large"
   engine               = "aurora-mysql"
