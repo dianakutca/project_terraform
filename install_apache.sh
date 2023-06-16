@@ -16,3 +16,6 @@ sudo sed  -i 's/database_name_here/my_database/g' /var/www/html/wp-config.php
 sudo sed -i 's/database_name_here/my_database/g' /var/www/html/wp-config.php
 sudo sed  -i 's/password_here/barbut8chars/g' /var/www/html/wp-config.php
 #echo "CREATE DATABASE IF NOT EXISTS wordpress; CREATE USER IF NOT EXISTS 'wordpress'@'localhost' IDENTIFIED BY '${db_password}'; GRANT ALL PRIVILEGES ON *.* TO 'wordpress'@'localhost' WITH GRANT OPTION;" | mysql
+  # user_data              = base64encode(file("install_apache.sh"))
+
+    # instance_class       = "db.r4.large"
