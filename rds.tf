@@ -5,13 +5,32 @@ resource "aws_db_subnet_group" "project_db_subnet_group" {
 }
 
 #Create cluster RDS , Aurora
-resource "aws_rds_cluster_instance" "project_database" {
+# resource "aws_rds_cluster_instance" "project_database" {
+#   count                = 4
+#   cluster_identifier   = aws_rds_cluster.db_instance.id
+#   instance_class       = "db.t2.small"
+#   engine               = "aurora-mysql"
+#   db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
+# }
+
+resource "aws_rds_cluster_instance" "writer_instance" {
   count                = 1
+  identifier           = "writer-instance"
   cluster_identifier   = aws_rds_cluster.db_instance.id
   instance_class       = "db.t2.small"
   engine               = "aurora-mysql"
   db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
 }
+
+resource "aws_rds_cluster_instance" "reader_instances" {
+  count                = 3
+  identifier           = "example-reader-${count.index + 1}"
+  cluster_identifier   = aws_rds_cluster.db_instance.id
+  instance_class       = "db.t2.small"
+  engine               = "aurora-mysql"
+  db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
+}
+
 resource "aws_rds_cluster" "db_instance" {
   cluster_identifier     = var.cluster_identifier
   engine                 = "aurora-mysql"

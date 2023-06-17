@@ -77,7 +77,7 @@ variable "availability_zone" {
 
 variable "availability_zones" {
   description = "all availability zones in region"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
