@@ -113,6 +113,27 @@ variable "tags" {
   default     = {}
 }
 
+variable tags {
+  type = map
+  default = {
+     Name = "Project"
+  }
+}
+
+variable "zone_id" {
+  description = "provide zone id"
+  type = string
+  default = ""
+
+} 
+
+variable tags {
+  type = map
+  default = {
+     Name = "Project"
+  }
+}
+
 
 
 
