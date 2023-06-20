@@ -1,11 +1,4 @@
-
-# # 1. Create key pair
-# resource "aws_key_pair" "project_keypair" {
-#   key_name   = "project_keypair"
-#   public_key = file(var.path_to_public_key)
-# }
-
-# 2. Create VM 
+# 1. Create VM 
 resource "aws_instance" "wordpress" {
   availability_zone      = var.availability_zone
   ami                    = "ami-09988af04120b3591"
@@ -13,9 +6,12 @@ resource "aws_instance" "wordpress" {
   vpc_security_group_ids = [aws_security_group.my_sg.id]
   key_name               = aws_key_pair.project_keypair.key_name
   subnet_id              = aws_subnet.public1.id
+
   tags = {
-    "Name" : "wordpressforami"
+    "Name" : "wordpress_for_ami"
   }
+
+
   connection {
     type        = "ssh"
     user        = var.instance_username

@@ -14,6 +14,6 @@ output "database_writer_endpoint" {
   value = aws_rds_cluster_instance.writer_instance[0].endpoint
 }
 
-# output "reader_instance" {
-#   value = aws_rds_cluster_instance.project_database
-# }
+output "instance_id" {
+value = aws_instance.wordpress.id
+}
