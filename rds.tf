@@ -4,6 +4,7 @@ resource "aws_db_subnet_group" "project_db_subnet_group" {
   subnet_ids = [aws_subnet.private1.id, aws_subnet.private2.id, aws_subnet.private3.id]
 }
 
+#Create cluster RDS
 resource "aws_rds_cluster_instance" "writer_instance" {
   count                = 1
   identifier           = "writer-instance"

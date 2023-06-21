@@ -43,10 +43,7 @@ You will have to create variable file, with all variables and name it "virginia.
 
 ### Tags (#Optional)
 
-tags = { 
-Dept = " "
-Team = " "  
-}
+- tags = { Dept = " " Team = " " }
 
 ### Domain Configuration
 
