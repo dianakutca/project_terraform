@@ -12,7 +12,7 @@ resource "aws_vpc" "Project" {
 resource "aws_subnet" "public1" {
   vpc_id                  = aws_vpc.Project.id
   cidr_block              = var.public_subnet1
-  availability_zone       = "us-east-1a"
+  availability_zone       = "${var.region}a"
   map_public_ip_on_launch = true
   tags = {
     Name = "Public1"
@@ -22,7 +22,7 @@ resource "aws_subnet" "public1" {
 resource "aws_subnet" "public2" {
   vpc_id                  = aws_vpc.Project.id
   cidr_block              = var.public_subnet2
-  availability_zone       = "us-east-1b"
+  availability_zone       = "${var.region}b"
   map_public_ip_on_launch = true
   tags = {
     Name = "Public2"
@@ -32,7 +32,7 @@ resource "aws_subnet" "public2" {
 resource "aws_subnet" "public3" {
   vpc_id                  = aws_vpc.Project.id
   cidr_block              = var.public_subnet3
-  availability_zone       = "us-east-1c"
+  availability_zone       = "${var.region}c"
   map_public_ip_on_launch = true
   tags = {
     Name = "Public3"
@@ -42,7 +42,7 @@ resource "aws_subnet" "public3" {
 resource "aws_subnet" "private1" {
   vpc_id                  = aws_vpc.Project.id
   cidr_block              = var.private_subnet1
-  availability_zone       = "us-east-1a"
+  availability_zone       = "${var.region}a"
   map_public_ip_on_launch = false
   tags = {
     Name = "Private1"
@@ -52,7 +52,7 @@ resource "aws_subnet" "private1" {
 resource "aws_subnet" "private2" {
   vpc_id                  = aws_vpc.Project.id
   cidr_block              = var.private_subnet2
-  availability_zone       = "us-east-1b"
+  availability_zone       = "${var.region}b"
   map_public_ip_on_launch = false
   tags = {
     Name = "Private2"
@@ -62,7 +62,7 @@ resource "aws_subnet" "private2" {
 resource "aws_subnet" "private3" {
   vpc_id                  = aws_vpc.Project.id
   cidr_block              = var.private_subnet3
-  availability_zone       = "us-east-1c"
+  availability_zone       = "${var.region}c"
   map_public_ip_on_launch = false
   tags = {
     Name = "Private3"

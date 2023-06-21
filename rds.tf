@@ -49,14 +49,3 @@ resource "aws_security_group" "database_sg" {
 
   }
 }
-
-
-
-#Create cluster RDS , Aurora
-# resource "aws_rds_cluster_instance" "project_database" {
-#   count                = 4
-#   cluster_identifier   = aws_rds_cluster.db_instance.id
-#   instance_class       = "db.t2.small"
-#   engine               = "aurora-mysql"
-#   db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
-# }
