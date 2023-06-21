@@ -18,66 +18,45 @@ You will have to create variable file, with all variables and name it "virginia.
 
 - region              = " "
 - path_to_public_key  = " "
+- path_to_private_key = " "
+- instance_username   = "ec2-user" #or any other user which will connect to remote terminal
+- sec_group_name      = " "
 
-path_to_private_key = " "
+### Networking
 
-instance_username   = "ec2-user" #or any other user which will connect to remote terminal
+- cidr_block          = " " #for VPC
+- public_subnet1      = " " #cidr block for public subnet1
+- public_subnet2      = " " #cidr block for public subnet2
+- public_subnet3      = " " #cidr block for public subnet3
+- private_subnet1     = " " #cidr block for private subnet1
+- private_subnet2     = " " #cidr block for private subnet2
+- private_subnet3     = " " #cidr block for private subnet3
+- availability_zone   = " " #where will main instance be created. It will be connected to DS cluster 
+- availability_zones = [" ", " ", " "]
 
-cidr_block          = " " #for VPC
+ ### Database
 
-sec_group_name      = " "
+- database_name      = " "
+- cluster_identifier = " "
+- master_username    = " "
+- master_password    = " "
 
-public_subnet1      = " " #cidr block for public subnet1
-
-public_subnet2      = " " #cidr block for public subnet2
-
-public_subnet3      = " " #cidr block for public subnet3
-
-private_subnet1     = " " #cidr block for private subnet1
-
-private_subnet2     = " " #cidr block for private subnet2
-
-private_subnet3     = " " #cidr block for private subnet3
-
-availability_zone   = " " #where will main instance be created. It will be connected to DS cluster 
-
-availability_zones = [
-    
- " ",
- 
-  " ",
-  
-  " "
-  
- ]
- 
-
- database_name      = " "
- 
- cluster_identifier = " "
- 
-master_username    = " "
-
-master_password    = " "
-
+### Tags
 
 tags = { #Optional
-
-  Dept = " "
-  
-  Team = " "
-  
+Dept = " "
+Team = " "  
 }
 
+### Domain Configuration
 
+- domain = " " #name of your domain for creating record using Route53
+- zone_id = " " #zone id for your domain 
 
-domain = " " #name of your domain for creating record using Route53
-
-zone_id = " " #zone id for your domain 
-
+```
 
 Depends on the region you choose before please run the followin commands :
-
+```
 terraform init && terraform apply -var-file regions/name-of-your-folder.tfvars   -auto-approve
 
 or 
