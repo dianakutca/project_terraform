@@ -41,9 +41,9 @@ You will have to create variable file, with all variables and name it "virginia.
 - master_username    = " "
 - master_password    = " "
 
-### Tags
+### Tags (#Optional)
 
-tags = { #Optional
+tags = { 
 Dept = " "
 Team = " "  
 }
@@ -53,12 +53,11 @@ Team = " "
 - domain = " " #name of your domain for creating record using Route53
 - zone_id = " " #zone id for your domain 
 
-```
 
 Depends on the region you choose before please run the followin commands :
 ```
 terraform init && terraform apply -var-file regions/name-of-your-folder.tfvars   -auto-approve
-
+```
 or 
 
 see the Makefile for shortcuts examples
