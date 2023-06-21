@@ -13,35 +13,37 @@ ___
 In your terminal, clone the following repository. Once you have cloned the repository, initialize your Terraform workspace, which will download and configure the providers.
 You will have to create variable file, with all variables and name it "virginia.tfvars" or any other region you need
 The variable file should content :
+```
+region              = " "
+```
+path_to_public_key  = " "
+```
+path_to_private_key = " "
+instance_username   = "ec2-user" #or any other user which will connect to remote terminal
+cidr_block          = " " #for VPC
+sec_group_name      = " "
+public_subnet1      = " " #cidr block for public subnet1
+public_subnet2      = " " #cidr block for public subnet2
+public_subnet3      = " " #cidr block for public subnet3
+private_subnet1     = " " #cidr block for private subnet1
+private_subnet2     = " " #cidr block for private subnet2
+private_subnet3     = " " #cidr block for private subnet3
+availability_zone   = " " #where will main instance be created. It will be connected to DS cluster 
+availability_zones = [
+ " ",
+  " ",
+  " "
+ ]
 
-'region              = " "
-'path_to_public_key  = " "
-'path_to_private_key = " "
-'instance_username   = "ec2-user" #or any other user which will connect to remote terminal
-'cidr_block          = " " #for VPC
-'sec_group_name      = " "
-'public_subnet1      = " " #cidr block for public subnet1
-'public_subnet2      = " " #cidr block for public subnet2
-'public_subnet3      = " " #cidr block for public subnet3
-'private_subnet1     = " " #cidr block for private subnet1
-'private_subnet2     = " " #cidr block for private subnet2
-'private_subnet3     = " " #cidr block for private subnet3
-'availability_zone   = " " #where will main instance be created. It will be connected to DS cluster 
-'availability_zones = [
-' " ",
-'  " ",
-'  " "
-' ]
+ database_name      = " "
+ cluster_identifier = " "
+master_username    = " "
+master_password    = " "
 
-' database_name      = " "
-' cluster_identifier = " "
-'master_username    = " "
-'master_password    = " "
-
-'tags = { #Optional
-'  Dept = " "
-'  Team = " "
-'}
+tags = { #Optional
+  Dept = " "
+  Team = " "
+}
 
 
 domain = " " #name of your domain for creating record using Route53
